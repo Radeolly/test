@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import {addCustomerAction, removeCustomerAction} from './store/customer_reducer';
 import { fetchCustomers } from './asyncAction/customers';
+import { AddPostForm } from "./features/posts/AddPostForm";
+import { PostsList } from "./features/posts/PostsList";
 
 function App() {
   const dispatch = useDispatch()
@@ -58,6 +60,8 @@ function App() {
           no clients!
         </div>
       }
+      <AddPostForm />
+      <PostsList />
     </div>
   );
 }
