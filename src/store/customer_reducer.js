@@ -16,12 +16,16 @@ export const customer = createSlice({
     },
 
     customerRemoved(state, action) {
-      state.customers.filter((post) => post.id !== action.payload);
+      state.customers.filter((elem) => elem.id !== action.payload);
+    },
+
+    addManyCustomersAction(state,action){
+      state.customers.concat(action.payload)
     }
   }
 });
 
-export const { customerAdded, customerRemoved } = customer.actions;
+export const { customerAdded, customerRemoved,addManyCustomersAction } = customer.actions;
 
 export const selectCount = (state) => state.counter.value;
 
@@ -43,9 +47,9 @@ const ADD_MANY_CUSTOMERS = "ADD_MANY_CUSTOMERS";
 //         return {...state}
 //       default:
 //         return state
-//     }
-//   }
+  //   }
+  // }
 
 //   export const addCustomerAction = (payload) => ({type:ADD_CUSTOMER, payload })
-//   export const removeCustomerAction = (payload) => ({type:REMOVE_CUSTOMER, payload })
-export const addManyCustomersAction = (payload) => ({ type: ADD_MANY_CUSTOMERS, payload })
+// //   export const removeCustomerAction = (payload) => ({type:REMOVE_CUSTOMER, payload })
+// export const addManyCustomersAction = (payload) => ({ type: ADD_MANY_CUSTOMERS, payload })
