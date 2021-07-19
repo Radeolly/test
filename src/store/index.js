@@ -5,6 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { configureStore } from "@reduxjs/toolkit";
 import postsReducer from "../features/posts/postsSlice";
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from "../asyncAction/sagas/index"
 
 export default configureStore({
     reducer: {
@@ -17,10 +19,18 @@ const rootReducer = combineReducers({
     customers: customerReducer,
 })
 
+const sagaMiddleware = createSagaMiddleware(); 
+
+const reducer = {
+    posts: postsReducer,
+    cash: cashReducer, //cash - ключ значение, для сокращенного использования имени
+    customers: customerReducer
+}
+
 export const store = configureStore({
-    reducer: {
-        posts: postsReducer,
-        cash: cashReducer, //cash - ключ значение, для сокращенного использования имени
-        customers: customerReducer
-    }
+    reducer,
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware) 
 });
+
+sagaMiddleware.run(rootSaga);

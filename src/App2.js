@@ -10,7 +10,7 @@ import { Navbar } from "./app/Navbar";
 import { AddPostForm } from "./features/posts/AddPostForm";
 import { PostsList } from "./features/posts/PostsList";
 
-function App() {
+function App2() {
   return (
     <Router>
       <Navbar />

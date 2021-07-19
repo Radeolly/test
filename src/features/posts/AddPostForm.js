@@ -31,7 +31,7 @@ export const AddPostForm = () => {
       <form>
         <input type="text" value={title} onChange={onTitleChanged} />
         <input type="text" value={content} onChange={onContentChanged} />
-        <button type="button" onClick={onSaveButtonPost}></button>
+        <button type="button" onClick={onSaveButtonPost}>add post</button>
       </form>
     </section>
   );
