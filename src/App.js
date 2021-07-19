@@ -42,7 +42,7 @@ function App() {
         <button onClick={() => addCash(Number(prompt()))}>add money</button>
         <button onClick={() => getCash(Number(prompt()))}>get money</button>
         <button onClick={() => addCustomer(prompt())}>add client</button>
-        <button onClick={() => dispatch({type:"CLICK"})}>delete client</button>
+        <button onClick={() => dispatch({type:"LOAD_CUSTOMERS"})}>show list of client in console</button>
         <button onClick={() => dispatch(fetchCustomers())}>add clientss</button>
       </div>
       {customers.length > 0 ?

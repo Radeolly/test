@@ -2,12 +2,12 @@ import { takeEvery, call, put } from "redux-saga/effects";
 
 export function* watcherSaga() {
   console.log("it works 2");
-  yield takeEvery("CLICK", workerSaga);
+  yield takeEvery("LOAD_CUSTOMERS", workerSaga);
 }
 
 export function* workerSaga() {
   const data = yield call(getCustomers);
-  //yield put({ type: "GET_POSTS", payload: data });
+  yield put({ type: "ADD_MANY_CUSTOMERS", payload: data });
   console.log(data);
 }
 
