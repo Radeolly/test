@@ -16,7 +16,7 @@ export const customer = createSlice({
     },
 
     customerRemoved(state, action) {
-      state.customers.filter((elem) => elem.id !== action.payload);
+      state.customers=state.customers.filter((elem) => elem.id !== action.payload);
     },
 
     addManyCustomersAction(state,action){
